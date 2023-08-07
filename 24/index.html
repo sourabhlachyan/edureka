@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fetchData = async () => {
+  const data = await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        {
+          title: "delectus aut autem",
+        },
+        {
+          title: "quis ul nam facilis",
+        },
+        {
+          title: "fugiat veniam minus",
+        },
+        {
+          title: "et poro tempora",
+        },
+        {
+          title: "laborisam molitilia et enim quasi adipisci quia",
+        },
+        {
+          title: "qui ulla ratione quibusdan voluptatem",
+        },
+        {
+          title: "illo expedita consequatar quia in",
+        },
+      ]);
+    }, 1000);
+  });
+
+  return data;
+};
+
+const printTitles = async (data) => {
+  const titles = data.map((item) => item.title);
+
+  for (const title of titles) {
+    console.log(title);
+  }
+};
+
+const main = async () => {
+  const data = await fetchData();
+  await printTitles(data);
+};
+
+main();
+const spreadFunction = (...args) => args;
+
+const restFunction = (...args) => args.slice(1);
+
+const restaurants = [{
+  id: 1,
+  restaurantname: "KFC",
+  address: "anand vihar",
+  city: "delhi"
+}, {
+  id: 2,
+  restaurantname: "burger-king",
+  address: "savita vihar",
+  city: "delhi"
+}];
+
+const newRestaurants = spreadFunction(...restaurants);
+const otherRestaurants = restFunction(...restaurants);
+
+console.log(newRestaurants); // [{id: 1, restaurantname: "KFC", address: "anand vihar", city: "delhi"}, {id: 2, restaurantname: "burger-king", address: "savita vihar", city: "delhi"}]
+console.log(otherRestaurants); // [{restaurantname: "KFC", address: "anand vihar", city: "delhi"}, {restaurantname: "burger-king", address: "savita vihar", city: "delhi"}]
+
+
+    </script>
+    
+</body>
+</html>

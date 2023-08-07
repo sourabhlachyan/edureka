@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+ var global = window;
+
+function foo() {
+  let y = "local";
+  console.log("the value of y in local scope is", y);
+
+  function bar() {
+    global.y = "global";
+    console.log("the value of y in global scope is", global.y);
+  }
+
+  bar();
+  console.log("the value of y in lexical scope is", global.y);
+
+  function baz() {
+    y = "functional";
+    console.log("the value of y in functional scope is", y);
+  }
+
+  baz();
+}
+
+foo();
+
+
+
+</script>
+    
+</body>
+</html>

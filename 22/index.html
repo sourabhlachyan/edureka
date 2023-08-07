@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+  const restaurentList = [
+    {
+      id: 1,
+      restaurentName: 'KFC',
+      adress: 'Anand vihar',
+      city: 'delhi',
+    },
+    {
+      id: 2,
+      restaurentName: 'Dominos',
+      adress: 'savita vihar',
+      city: 'pune',
+    },
+    {
+      id: 3,
+      restaurentName: 'burger king',
+      adress: 'cantonment',
+      city: 'mumbai',
+    }
+  ];
+
+  class RestaurantManager {
+    constructor(restaurantList) {
+      this.restaurantList = restaurantList;
+    }
+
+    printAllRestaurantNames() {
+      const restaurantNames = this.restaurantList.map((restaurant) => restaurant.restaurentName);
+      console.log(restaurantNames);
+    }
+  }
+
+  const manager = new RestaurantManager(restaurentList);
+  manager.printAllRestaurantNames();
+  const currentDate = new Date();
+  console.log(currentDate);
+  const randomNumber = Math.random();
+console.log('Random Number:', randomNumber);
+</script>
+
+    
+</body>
+</html>

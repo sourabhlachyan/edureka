@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Operation</title>
+  <style>
+    .red-box {
+      border: 1px solid red;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .blue-box {
+      border: 1px solid blue;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .green-box {
+      border: 1px solid green;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .person-row::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    .person {
+      width: 20%;
+      float: left;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="red-box">
+  <h1><label for="name">Name:</label></h1>
+  <input type="text" id="name">
+  
+  <label for="employeeId">Employee ID:</label>
+  <input type="text" id="employeeId">
+  
+  <div class="green-box">
+    <label for="city">City:</label>
+    <input type="text" id="city">
+    
+    <label for="district">District:</label>
+    <input type="text" id="district">
+    
+    <label for="pincode">Pin Code:</label>
+    <input type="text" id="pincode">
+  </div>
+  
+  <label for="hobbies">Hobbies:</label>
+  <input type="text" id="hobbies">
+  
+  <button onclick="createPerson()">Create Person</button>
+</div>
+
+<div id="output"></div>
+
+<script>
+  function createPerson() {
+    var name = document.getElementById('name').value;
+    var employeeId = document.getElementById('employeeId').value;
+    var city = document.getElementById('city').value;
+    var district = document.getElementById('district').value;
+    var pincode = document.getElementById('pincode').value;
+    var hobbies = document.getElementById('hobbies').value;
+    
+    var person = {
+      name: name,
+      employeeId: employeeId,
+      address: {
+        city: city,
+        district: district,
+        pincode: pincode
+      },
+      hobbies: hobbies
+    };
+    
+    displayPerson(person);
+  }
+  
+  function displayPerson(person) {
+    var output = document.getElementById('output');
+    
+    var blueBox = document.createElement('div');
+    blueBox.classList.add('blue-box', 'person');
+    
+    var nameText = document.createElement('p');
+    nameText.innerText = 'Name: ' + person.name;
+    
+    var employeeIdText = document.createElement('p');
+    employeeIdText.innerText = 'Employee ID: ' + person.employeeId;
+    
+    // Create a green box for the address information
+    var addressBox = document.createElement('div');
+    addressBox.classList.add('green-box');
+    
+    var addressText = document.createElement('p');
+    addressText.innerText = 'Address: ' + person.address.city + ', ' + person.address.district + ', ' + person.address.pincode;
+    
+    addressBox.appendChild(addressText);
+    
+    blueBox.appendChild(nameText);
+    blueBox.appendChild(employeeIdText);
+    blueBox.appendChild(addressBox);
+    
+    // Add person to the output container
+    output.appendChild(blueBox);
+    
+    // Check if we need to move to a new row
+    var persons = output.getElementsByClassName('person');
+    if (persons.length % 5 === 0) {
+      var personRow = document.createElement('div');
+      personRow.classList.add('person-row');
+      output.appendChild(personRow);
+    }
+  }
+</script>
+</body>
+</html>
