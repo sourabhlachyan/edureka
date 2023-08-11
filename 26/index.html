@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Storage and Session Storage</title>
+</head>
+<body>
+  <script>
+    // Store a value in local storage
+    localStorage.setItem("name", "girish");
+
+    // Store a list of values in local storage
+    localStorage.setItem("friends", ["surya", "kiran", "santosh", "ravi", "rahul"]);
+
+    // Get the value from local storage
+    let name = localStorage.getItem("name");
+    console.log("name : " + name); // girish
+
+    // Get the list of values from local storage
+    let friends = localStorage.getItem("friends");
+    console.log("next " + friends); // ['surya','kiran','santosh','ravi','rahul']
+  </script>
+</body>
+</html>

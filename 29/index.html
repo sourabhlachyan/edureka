@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Handling, Bubbling, and Trickle Down</title>
+</head>
+<body>
+<div id="boxes">
+  <div style="border: 1px solid blue; display: inline-block;">
+    <h3>Surya</h3>
+    <p>surya@gmail.com</p>
+    <button>Delete</button>
+  </div>
+  <div style="border: 1px solid blue; display: inline-block;">
+    <h3>Kiran</h3>
+    <p>kiran@gmail.com</p>
+    <button>Delete</button>
+  </div>
+  <div style="border: 1px solid blue; display: inline-block;">
+    <h3>Rahul</h3>
+    <p>rahul@gmail.com</p>
+    <button>Delete</button>
+  </div>
+  <div style="border: 1px solid blue; display: inline-block;">
+    <h3>Santosh</h3>
+    <p>santosh@gmail.com</p>
+    <button>Delete</button>
+  </div>
+  <div style="border: 1px solid blue; display: inline-block;">
+    <h3>Ravi</h3>
+    <p>ravi@gmail.com</p>
+    <button>Delete</button>
+  </div>
+</div>
+<script>
+// Event handler for the delete button
+function deleteButtonHandler(event) {
+  // Prevent the event from bubbling
+  event.stopPropagation();
+
+  // Get the element that was clicked
+  var button = event.target;
+
+  // Get the parent div of the button
+  var div = button.parentElement;
+
+  // Remove the div from the DOM
+  div.remove();
+}
+
+// Add the event handler to all the delete buttons
+var buttons = document.querySelectorAll("button");
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener("click", deleteButtonHandler);
+}
+</script>
+</body>
+</html>

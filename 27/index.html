@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        (function () {
+        alert("Hello, world!");
+       })();
+        function fetchData() {
+    // Fetch the data from an API or database.
+    const data = [1, 2, 3, 4, 5];
+    return data;
+  }
+
+  function loopThroughData(data) {
+    // Loop through the data using the map method.
+    const mappedData = data.map(function (item) {
+      return item * 2;
+    });
+
+    // Use the setInterval and setTimeout methods to print the mapped data.
+    setInterval(() => {
+      console.log(mappedData);
+    }, 1000);
+
+    setTimeout(() => {
+      console.log(mappedData);
+    }, 2000);
+  }
+
+  const data = fetchData();
+  loopThroughData(data);    
+
+    </script>
+</body>
+</html>

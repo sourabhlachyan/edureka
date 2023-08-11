@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function curryAdd(x) {
+  function addY(y) {
+    function addZ(z) {
+      return x + y + z;
+    }
+    return addZ;
+  }
+  return addY;
+}
+
+const result = curryAdd(10)(20)(30);
+console.log(result);
+
+
+    </script>
+    
+</body>
+</html>
