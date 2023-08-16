@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const restaurants = [
+  { restaurant: "kfc", averagerating: 4.0 },
+  { restaurant: "subway", averagerating: 4.0 },
+  { restaurant: "dominos", averagerating: 1.5 },
+  { restaurant: "burgerking", averagerating: 3.5 },
+  { restaurant: "pizzahut", averagerating: 5.0 },
+];
+
+const calculateAverageRating = (restaurants) => {
+  let totalRatings = 0;
+  let numberOfRestaurants = restaurants.length;
+  for (const restaurant of restaurants) {
+    totalRatings += restaurant.averagerating;
+  }
+  const averageRating = totalRatings / numberOfRestaurants;
+  return averageRating;
+};
+
+const listRestaurantsWithHighRating = (restaurants, averageRating) => {
+  const highRatedRestaurants = [];
+  for (const restaurant of restaurants) {
+    if (restaurant.averagerating >= averageRating) {
+      highRatedRestaurants.push(restaurant.restaurant);
+    }
+  }
+  return highRatedRestaurants;
+};
+
+const averageRating = calculateAverageRating(restaurants);
+const highRatedRestaurants = listRestaurantsWithHighRating(restaurants, averageRating);
+
+console.log("The average rating for all restaurants is", averageRating);
+console.log("The following restaurants have an average rating of four or higher:", highRatedRestaurants);
+
+    </script>
+    
+</body>
+</html>
